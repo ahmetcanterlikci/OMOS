@@ -1,0 +1,23 @@
+#personalInfo{
+	font-size: 18px;
+	margin-top: 25px;
+	margin-left: 15%;
+	float: left;
+	width: 70%;
+	}
+#saveEditButton{
+	float: right;
+	width: 30%;
+	height: auto;
+	font-size: 20px;
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 4px;
+	border: solid 2px #00994d;
+}
+#saveEditButton:active{
+	opacity: 0.8;
+	font-size: 20px;
+	border-width: 3px;
+}

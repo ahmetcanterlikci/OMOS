@@ -1,0 +1,106 @@
+
+
+#info{
+	border: solid 1px #CCC;
+	background-color:#EEE;
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+#info form{
+	width: 100%;
+	text-align:justify;
+	display: inline-block;
+	margin-bottom: 25px;
+
+}
+#personalInfo,#accountInfo{
+	margin-top: 25px;
+	margin-left: 5%;
+	float: left;
+	width: 40%;
+}
+#info form div h4{
+	font-size: 30px;
+}
+
+#info form div label{
+	width: 100%;
+	display: inline-block;
+	float: left;                                
+	margin-bottom: 15px;
+}
+#info form div label label{
+	width: 20%;
+	margin-right: 30px;
+	float: left;
+	margin-bottom: 15px;
+}
+#info form div label label input{
+	width: 30%;
+	float: left;
+	margin-bottom: 15px;
+}
+#info form div label input{
+	width: 60%;
+	float: right;
+}
+#info form div label select{
+	width: 60px;
+	margin-left: 10px;
+	font-size: 15px;
+	background-color: white !important;
+}
+#info form div label textarea{
+	float: right;
+	padding: 1px;
+	height: 150px;
+	width: 50%;
+	margin-right: 10%;
+}
+#info form div label input[type=checkbox]{
+	float: right;
+	zoom:1.5;
+	background-color: green;
+}
+#accountInfo h6{
+	font-size: 13px;
+	font-style: italic;
+}
+#cardInfo{
+	visibility: hidden;
+	margin-top: 15px;
+	padding-top: 10px;
+	float: left;
+	width: 100%;
+}
+#info form input [type=submit]{
+	float: right;
+	background-color: blue;
+	color: green;
+
+}
+#btn{
+	float: right;
+	padding: 4px;
+	margin-right: 5%;
+	width: 	10%;
+	background-color: #4CAF50;
+	border: solid 2px #00994d;
+	color:white;
+}
+@media only screen and (max-width: 1050px) {
+	#personalInfo{
+		border-left: none;
+		border-bottom: solid #AAA 2px;
+	margin-top: 25px;
+	margin-left: 10%;
+	width: 80%;
+}
+	#accountInfo{
+	margin-top: 25px;
+	margin-left: 10%;
+	width: 80%;
+}
+ 
+  }

@@ -1,0 +1,59 @@
+#loginDiv{
+	border: solid 1px #CCC;
+	background-color:#EEE;
+	width: 60%;
+	margin-left: 20%;
+	margin-right: 20%;
+}
+#loginDiv form{
+	width: 100%;
+	text-align:center;
+	padding-right: 10%;
+	padding-left: 10%;
+
+}
+#loginDiv form input{
+	margin-bottom: 25px;
+	width: 50%;
+	font-size: 1vw;
+
+}
+.loginButton{
+	display: inline-block;
+	text-align:center;
+	font-size: 3vw;
+	background-color: #4CAF50;
+	border: solid 2px #00994d;
+	color:white;
+	width: 50%;
+}
+#loginDiv a{
+	padding-left: 10%;
+	padding-right: 10%;
+	text-decoration: none;
+	font-size: 18px;
+}
+.loginLinks{
+	display: inline-block;
+	text-align:center;
+	font-size: 1vw;
+	background-color: #4CAF50;
+	border: solid 2px #00994d;
+	color:white;
+	width: 45%;
+}
+#loginForm form p{
+
+}
+
+@media only screen and (max-width: 950px) {
+#loginDiv form button{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 13px;
+}
+	#loginDiv a{
+		font-size: 10px;
+	}
+
+}

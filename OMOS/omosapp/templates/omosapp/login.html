@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <script src="https://kit.fontawesome.com/f4dcd45d8c.js"></script>
+
+</head>
+<body>
+
+<div class="row">
+    <div class="col-3">
+        <div class="header">
+            <h1 style="font-weight: bold;margin-bottom: -5%; margin-top: -4%;">OMOS</h1>
+        </div>
+    </div>
+
+    <div class="col-7">
+    </div>
+
+    <div class="col-2">
+        <i class="fab fa-facebook" style="font-size:30px; margin-right: 5%; margin-left: 15%"></i>
+        <i class="fab fa-twitter" style="font-size:30px; margin-right: 5%"></i>
+        <i class="fab fa-instagram" style="font-size:30px;"></i>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-12">
+
+        <div class="topnav">
+            <div class="row">
+                <div class="col-3">
+                    <a class="active" href="visitorhome.html">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="col-6">
+                    <input type="text" placeholder="Search restaurant or market...">
+                </div>
+                <div class="col-3">
+                    <div class="dropdown" style=" margin-left: 10%;">
+                        <button class="dropbtn" style="width: 150%; ">Login</button>
+                        <div class="dropdown-content">
+                            <a href="login.html">Login</a>
+                            <a href="register.html">Register</a>
+                            <a href="#">My Comments</a>
+                            <a href="#">Our Policy</a>
+                        </div>
+                    </div>
+                    <a href="chart.html" style="float: right; margin-top: -1%;">
+                        <i class="fas fa-shopping-cart" style="font-size:36px; float: right;"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6" id="loginDiv">
+        <h2>Members Login</h2>
+        <hr>
+        {% block content %}
+            <form method="POST">
+                {% csrf_token %}
+                <p style="margin-left: -40%;">Username: </p>
+                {{ form.username }}
+                <p style="margin-left: -40%;">Password: </p>
+                {{ form.password }}
+                <button class="w3-button w3-green" type="submit" style="width:50%;">Login</button>
+                <div style="margin-left: -20%; margin-top: 5%; margin-bottom: 5%;">
+                {{ error_message }}
+                </div>
+            </form>
+        {% endblock %}
+        <div class="row">
+            <div class="col-3">
+            </div>
+            <div class="col-3">
+                <a style="font-size: 15px; margin-left: 6%;" href="forgetPassword.html">Forget Password</a>
+            </div>
+            <div class="col-3">
+                <a style="font-size: 15px; margin-left: 40%;" href="register.html">Register</a>
+            </div>
+            <div class="col-3">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="bottom">
+    <div class="row">
+        <div class="col-12" style="border-top-style: groove;  margin-top: 5%; background-color: #717171;">
+            <div class="row">
+                <div class="col-2">
+                    <select class="w3-select w3-border" name="option">
+                        <option value="1">Turkish Lira ₺</option>
+                        <option value="2">Dollar $</option>
+                        <option value="3">Euro €</option>
+                    </select>
+                </div>
+                <div class="col-8">
+                </div>
+                <div class="col-2">
+                    <a href="index.html" style="color: initial;">
+                        <h4 style="color: white; float:right; margin-top: -3%;">HELP & CONTACT</h4></a>
+                    <h5 style="color: white; float: right; margin-right: 10%; margin-top: -3%;">0850-255-4040</h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                </div>
+                <div class="col-8">
+                    <h6 style="text-align: center; margin-bottom: -20px;">© Copyright 2019 Online Ordering and Marketing
+                        System Inc. All rights are reserverd.</h6></a>
+                </div>
+                <div class="col-2">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

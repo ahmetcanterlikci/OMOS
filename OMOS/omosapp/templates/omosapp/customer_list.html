@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <script src="https://kit.fontawesome.com/f4dcd45d8c.js"></script>
+</head>
+<body>
+ {% for customer in customers %}
+     <div>
+     <p>Name: {{ customer.name }}</p>
+     <p>Email: {{ customer.email }}</p>
+     <p>Gender: {{ c }}</p>
+     </div>
+ {% endfor %}
+</body>
+</html>
