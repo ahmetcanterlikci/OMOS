@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-    <title>My Profile</title>
+    <title>Client Info</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <script src="https://kit.fontawesome.com/f4dcd45d8c.js"></script>
@@ -61,39 +61,102 @@
     </div>
 </div>
 
+
 <div class="row">
     <div class="col-12 w3-container w3-card-4 w3-light-grey" style="width: 98%; margin-left: 1%;">
         <div class="row">
             <div class="col-12">
-                <h3 style="border-bottom-style: groove; font-weight: bold;">MY PROFILE</h3>
+                <h3 style="border-bottom-style: groove; font-weight: bold;">CLIENT INFORMATION</h3>
             </div>
         </div>
         <div class="row">
-            <div class="col-1">
-                <a href="{% url 'account' %}">
-                <i class="fas fa-user-edit" style="font-size: 70px; margin: auto"></i></a>
-                <h4 style="margin: auto">Personal<br>Information</h4>
-            </div>
-            <div class="col-1">
-                <a href="{% url 'changepassword' %}">
-                <i class="fas fa-lock" style="font-size: 70px; margin: auto"></i></a>
-                <h4 style="margin: auto">Change Password</h4>
-            </div>
-            <div class="col-1">
-                <a href="{% url 'myorders' %}">
-                    <i class="fas fa-motorcycle" style="font-size: 70px; margin: auto"></i></a>
-                <h4 style="margin: auto">My Orders</h4>
-            </div>
-            <div class="col-1">
-                <a href="{% url 'addresses' %}">
-                    <i class="fas fa-address-book" style="font-size: 70px; margin-left: 15%;"></i></a>
-                <h4 style="margin: auto">Addresses</h4>
-            </div>
-            <div class="col-8">
+        <div class="col-3">
+            <div class="col-2">
+                <img src="{% static 'images/pizzahut.png' %}" class="w3-border w3-padding" alt="Alps" style="height: 200px; width: 200px;">
             </div>
         </div>
-    </div>
+        <div class="col-3" style="margin-left: -8%;">
+            <p>
+                <label>Client Name</label>
+                <input class="w3-input" type="text" value="Pizzahut Bakırköy Şubesi"></p>
+            <p>
+                <label>Client Number</label>
+                <input class="w3-input" type="text" value="8954347665"></p>
+            <p>
+                <label>Client Type</label>
+                <form>
+                <select class="w3-select w3-border" name="option">
+                    <option value="1">Chain</option>
+                    <option value="2">Ownership</option>
+                </select>
+                </form>
+            </p>
+        </div>
+        <div class="col-6">
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <p>
+                    <label>Phone Number</label>
+                    <input class="w3-input" type="text" value="054387567854"></p>
+                <p>
+                    <label>Fax Number</label>
+                    <input class="w3-input" type="text" value="045498545443"></p>
+                <p>
+                    <label>Address</label>
+                     <p></p>
+                    <textarea name="message" rows="7" cols="38" style="margin-top: -3%;">Sinancengiz mah. Kenan cad. Z03 Blok No:1
+                    </textarea>
+                </p>
+            </div>
+            <div class="col-3" style="margin-left: 2%;">
+                <p>
+                    <label>Country</label>
+                <form>
+                    <select class="w3-select w3-border" name="option">
+                        <option value="1">Turkey</option>
+                        <option value="2">England</option>
+                        <option value="2">France</option>
+                        <option value="2">North America</option>
+                        <option value="2">Russia</option>
+                    </select>
+                </form>
+                </p>
+                <p>
+                    <label>City</label>
+                <form>
+                    <select class="w3-select w3-border" name="option">
+                        <option value="1">İstanbul</option>
+                        <option value="2">Ankara</option>
+                        <option value="2">Bursa</option>
+                        <option value="2">İzmir</option>
+                        <option value="2">Muğla</option>
+                    </select>
+                </form>
+                </p>
+                <p>
+                    <label>District</label>
+                <form>
+                    <select class="w3-select w3-border" name="option">
+                        <option value="1">Kadıköy</option>
+                        <option value="2">Bahçelievler</option>
+                        <option value="2">Beşiktaş</option>
+                        <option value="2">Şile</option>
+                        <option value="2">Avcılar</option>
+                    </select>
+                </form>
+                </p>
+            </div>
+            <div class="col-6">
+            </div>
+        </div>
 
+        <div class="row" style="margin-top: 2%;">
+            <input type="button" class="w3-btn w3-teal" value="Save" style="float: left; margin-right: 2%; margin-left: 1%;">
+            <input type="button" class="w3-btn w3-teal" value="Cancel" style="float: left; margin-bottom: 2%;">
+        </div>
+    </div>
 </div>
 
 <div class ="row">

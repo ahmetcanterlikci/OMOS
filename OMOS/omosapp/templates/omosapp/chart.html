@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-    <title>My Profile</title>
+    <title>My Chart</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <script src="https://kit.fontawesome.com/f4dcd45d8c.js"></script>
@@ -61,36 +61,107 @@
     </div>
 </div>
 
+
 <div class="row">
     <div class="col-12 w3-container w3-card-4 w3-light-grey" style="width: 98%; margin-left: 1%;">
         <div class="row">
             <div class="col-12">
-                <h3 style="border-bottom-style: groove; font-weight: bold;">MY PROFILE</h3>
+                <h3 style="border-bottom-style: groove; font-weight: bold;">MY CHART</h3>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-1">
-                <a href="{% url 'account' %}">
-                <i class="fas fa-user-edit" style="font-size: 70px; margin: auto"></i></a>
-                <h4 style="margin: auto">Personal<br>Information</h4>
+            <div class="col-2">
+                <h4>Photo</h4>
             </div>
-            <div class="col-1">
-                <a href="{% url 'changepassword' %}">
-                <i class="fas fa-lock" style="font-size: 70px; margin: auto"></i></a>
-                <h4 style="margin: auto">Change Password</h4>
+            <div class="col-2">
+                <h4>Product</h4>
             </div>
-            <div class="col-1">
-                <a href="{% url 'myorders' %}">
-                    <i class="fas fa-motorcycle" style="font-size: 70px; margin: auto"></i></a>
-                <h4 style="margin: auto">My Orders</h4>
+            <div class="col-2">
+                <h4>Amount</h4>
             </div>
-            <div class="col-1">
-                <a href="{% url 'addresses' %}">
-                    <i class="fas fa-address-book" style="font-size: 70px; margin-left: 15%;"></i></a>
-                <h4 style="margin: auto">Addresses</h4>
+            <div class="col-2">
+                <h4>Cost</h4>
             </div>
+            <div class="col-4">
+            </div>
+        </div>
+
+        <div class="row" style="border-bottom-style: groove;">
+            <div class="col-2">
+                <img src="{% static 'images/erikli5.jpg' %}" class="w3-border w3-padding" alt="Alps" style="height: 150px; width: 150px;">
+            </div>
+            <div class="col-2">
+                <h5>Erikli Su</h5>
+            </div>
+            <div class="col-2">
+                <form>
+                <input type="number" name="quantity" min="1" max="99" value="1">
+                </form>
+            </div>
+            <div class="col-2">
+                <h4>6.00 TL</h4>
+            </div>
+            <div class="col-2">
+                <a class="w3-btn w3-black">Cancel</a>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+        <div class="row" style="border-bottom-style: groove;">
+            <div class="col-2">
+                <img src="{% static 'images/headshoulders1.jpg' %}" class="w3-border w3-padding" alt="Alps" style="height: 150px; width: 150px;">
+            </div>
+            <div class="col-2">
+                <h5>Head & Shoulders Şampuan Klasik</h5>
+            </div>
+            <div class="col-2">
+                <form>
+                    <input type="number" name="quantity" min="1" max="99" value="1">
+                </form>
+            </div>
+            <div class="col-2">
+                <h4>26.00 TL</h4>
+            </div>
+            <div class="col-2">
+                <a class="w3-btn w3-black">Cancel</a>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+        <div class="row" style="border-bottom-style: groove;">
+            <div class="col-2">
+                <img src="{% static 'images/dovesabun3.jpg' %}" class="w3-border w3-padding" alt="Alps" style="height: 150px; width: 150px;">
+            </div>
+            <div class="col-2">
+                <h5>Dove Katı El Sabunu 100ml 4'lü Paket</h5>
+            </div>
+            <div class="col-2">
+                <form>
+                    <input type="number" name="quantity" min="1" max="99" value="1">
+                </form>
+            </div>
+            <div class="col-2">
+                <h4>24.00 TL</h4>
+            </div>
+            <div class="col-2">
+                <a class="w3-btn w3-black">Cancel</a>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col-8">
+
             </div>
+            <div class="col-2">
+                <h4 style="float: right;">Total Cost: 56.00 TL </h4>
+            </div>
+            <div class="col-2">
+                <input type="button" class="w3-btn w3-red" value="Go to the Checkout" style="float: right;">
+            </div>
+
         </div>
     </div>
 

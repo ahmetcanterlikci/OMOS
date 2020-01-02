@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-    <title>My Profile</title>
+    <title>Addresses</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <script src="https://kit.fontawesome.com/f4dcd45d8c.js"></script>
@@ -61,39 +61,30 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-12 w3-container w3-card-4 w3-light-grey" style="width: 98%; margin-left: 1%;">
-        <div class="row">
-            <div class="col-12">
-                <h3 style="border-bottom-style: groove; font-weight: bold;">MY PROFILE</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-1">
-                <a href="{% url 'account' %}">
-                <i class="fas fa-user-edit" style="font-size: 70px; margin: auto"></i></a>
-                <h4 style="margin: auto">Personal<br>Information</h4>
-            </div>
-            <div class="col-1">
-                <a href="{% url 'changepassword' %}">
-                <i class="fas fa-lock" style="font-size: 70px; margin: auto"></i></a>
-                <h4 style="margin: auto">Change Password</h4>
-            </div>
-            <div class="col-1">
-                <a href="{% url 'myorders' %}">
-                    <i class="fas fa-motorcycle" style="font-size: 70px; margin: auto"></i></a>
-                <h4 style="margin: auto">My Orders</h4>
-            </div>
-            <div class="col-1">
-                <a href="{% url 'addresses' %}">
-                    <i class="fas fa-address-book" style="font-size: 70px; margin-left: 15%;"></i></a>
-                <h4 style="margin: auto">Addresses</h4>
-            </div>
-            <div class="col-8">
-            </div>
-        </div>
-    </div>
 
+<div class="row">
+    <div class="col-3 w3-container w3-card-4 w3-light-grey" style="margin-right: 1%; margin-left: 1%;">
+        <i class="fas fa-plus-circle" style="font-size: 36px; margin-left: 50%; margin-top: 5%;"></i>
+        <p style="text-align: center">Add new shipping address</p>
+    </div>
+    <div class="col-3 w3-container w3-card-4 w3-light-grey" style="margin-right: 1%;">
+        <h5 style="font-weight: bold">Home Addres-1</h5>
+        <p></p>
+        <h6>Ahmet Can Terlikçi</h6>
+        <p></p>
+        <p>Merkez mah. Sinan cad. Sena sok. No:1</p>
+        <p>05318765476</p>
+        <p><button class="w3-button w3-black w3-round-large" style="margin-top: 5%;">Detay</button></p>
+    </div>
+    <div class="col-3 w3-container w3-card-4 w3-light-grey">
+        <h5 style="font-weight: bold">Work Address</h5>
+        <p></p>
+        <h6>Ahmet Can Terlikçi</h6>
+        <p></p>
+        <p>Cedidbey mah. Sinan cad. Z02 Blok No:1</p>
+        <p>02167568975</p>
+        <p><button class="w3-button w3-black w3-round-large" style="margin-top: 5%;">Detay</button></p>
+    </div>
 </div>
 
 <div class ="row">

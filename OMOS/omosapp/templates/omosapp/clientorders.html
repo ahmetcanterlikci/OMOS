@@ -1,0 +1,261 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <title>Client Orders</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <script src="https://kit.fontawesome.com/f4dcd45d8c.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body>
+
+<div class="row">
+    <div class="col-3">
+        <div class="header">
+            <h1 style="font-weight: bold;margin-bottom: -5%; margin-top: -4%;">OMOS</h1>
+        </div>
+    </div>
+
+    <div class="col-7">
+    </div>
+
+    <div class="col-2">
+        <i class="fab fa-facebook" style="font-size:30px; margin-right: 5%; margin-left: 15%"></i>
+        <i class="fab fa-twitter" style="font-size:30px; margin-right: 5%"></i>
+        <i class="fab fa-instagram" style="font-size:30px;"></i>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-12">
+
+        <div class="topnav">
+            <div class="row">
+                <div class="col-3">
+                    <a class="active" href="{% url 'home' %}">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="col-6">
+                    <input type="text" placeholder="Search restaurant or market...">
+                </div>
+                <div class="col-3">
+                    <div class="dropdown" style=" margin-left: 10%;">
+                        <button class="dropbtn" style="width: 150%; ">Login</button>
+                        <div class="dropdown-content">
+                            <a href="{% url 'myprofile' %}">My Profile</a>
+                            <a href="#">My Comments</a>
+                            <a href="#">Our Policy</a>
+                            <a href="{% url 'home' %}">Exit</a>
+                        </div>
+                    </div>
+                    <a href="{% url 'chart' %}" style="float: right; margin-top: -1%;">
+                        <i class="fas fa-shopping-cart" style="font-size:36px; float: right;"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-2 w3-container w3-card-4 w3-light-grey">
+
+                <h5 class="w3-bar-item" style="font-weight: bold;">Order Status</h5>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="w3-bar-item w3-button tablink w3-red " onclick="openCity(event, 'Current')">Active</button>
+                        <br>
+
+                        <button class="w3-bar-item w3-button tablink" onclick="openCity(event, 'Past')">Completed</button>
+                        <br>
+
+                        <button class="w3-bar-item w3-button tablink" onclick="openCity(event, 'Cancelled')">Cancelled</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div id="Current" class="city w3-container w3-card-4 w3-light-grey" style="display:block; margin-top: -1.25%;">
+                    <h3 style="margin-bottom: 3%; font-weight: bold">ACTIVE ORDERS</h3>
+                    <div class="row" style="border-bottom-style: groove; border-top-style: groove;">
+                        <div class="col-4">
+                            <p>Customer: Ahmet Can Terlikçi</p>
+                            <p>Order:   95668245</p>
+                            <p>Date :   2019-08-24</p>
+                            <p>Time :   00:54</p>
+                            <br>
+                            <p style="font-weight: bold">Order:</p>
+                            <p>-Izgara Köfte (1 piece)</p>
+                            <p>-Ayran (1 piece)</p>
+                            <br>
+                            <p><b><a target="_blank" style="font-size: 18px;">Detay</a></b></p>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <h4 style="font-weight: bold">132.95 TL</h4>
+                            <h5>Credit Card</h5>
+                            <br>
+                            <p style="font-weight: bold; margin-top: 35%;">Address:</p>
+                            <p>Kenan mah. Sinan cad. Tuğba apt. B blok No:1</p>
+                        </div>
+                        <div class="col-2">
+                        </div>
+                    </div>
+                    <div class="row" style="border-bottom-style: groove;">
+                        <div class="col-4">
+                            <p>Customer: Bora Arseven</p>
+                            <p>Order:   54668245</p>
+                            <p>Date :   2019-08-13</p>
+                            <p>Time :   12:54</p>
+                            <br>
+                            <p style="font-weight: bold">Order:</p>
+                            <p>-Izgara Köfte (1 piece)</p>
+                            <p>-Ayran (1 piece)</p>
+                            <br>
+                            <p><b><a target="_blank" style="font-size: 18px;">Detay</a></b></p>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <h4 style="font-weight: bold">57.95 TL</h4>
+                            <h5>Credit Card</h5>
+                            <br>
+                            <p style="font-weight: bold; margin-top: 35%;">Address:</p>
+                            <p>Kenan mah. Sinan cad. Tuğba apt. B blok No:1</p>
+                        </div>
+                        <div class="col-2">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <p>Customer: Tunç Bora Tamsan</p>
+                            <p>Order:   87668245</p>
+                            <p>Date :   2019-08-06</p>
+                            <p>Time :   10:43</p>
+                            <br>
+                            <p style="font-weight: bold">Order:</p>
+                            <p>-Kahvaltı Tabağı Tek Kişilik (1 piece)</p>
+                            <p>-Ayran (1 piece)</p>
+                            <br>
+                            <p><b><a target="_blank" style="font-size: 18px;">Detay</a></b></p>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <h4 style="font-weight: bold">256.95 TL</h4>
+                            <h5>Credit Card</h5>
+                            <br>
+                            <p style="font-weight: bold; margin-top: 35%;">Address:</p>
+                            <p>Kenan mah. Sinan cad. Tuğba apt. B blok No:1</p>
+                        </div>
+                        <div class="col-2">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="Past" class="city w3-container w3-card-4 w3-light-grey" style="display:none; margin-top: -1.25%;">
+                    <h3 style="margin-bottom: 3%; font-weight: bold">COMPLETED ORDERS</h3>
+                    <div class="row" style="border-bottom-style: groove; border-top-style: groove;">
+                        <div class="col-4">
+                            <p>Customer: Kenan Sinanoğlu</p>
+                            <p>Order:   75668987</p>
+                            <p>Date :   2019-08-18</p>
+                            <p>Time :   13:56</p>
+                            <br>
+                            <p style="font-weight: bold">Order:</p>
+                            <p>-Izgara Köfte (2 piece)</p>
+                            <p>-Tiramisu (1 piece)</p>
+                            <br>
+                            <p><b><a target="_blank" style="font-size: 18px;">Detay</a></b></p>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <h4 style="font-weight: bold">82.95 TL</h4>
+                            <h5>Credit Card</h5>
+                            <br>
+                            <p style="font-weight: bold; margin-top: 35%;">Address:</p>
+                            <p>Sevgi mah. Kenan cad. Tuğba apt. B blok No:1</p>
+                        </div>
+                        <div class="col-2">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <p>Customer: Hüseyin Cengiz</p>
+                            <p>Order:   99876245</p>
+                            <p>Date :   2019-06-24</p>
+                            <p>Time :   12:54</p>
+                            <br>
+                            <p style="font-weight: bold">Order:</p>
+                            <p>-Çıtır Tavuk (1 piece)</p>
+                            <p>-Ayran (1 piece)</p>
+                            <br>
+                            <p><b><a target="_blank" style="font-size: 18px;">Detay</a></b></p>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3">
+                            <h4 style="font-weight: bold">132.95 TL</h4>
+                            <h5>Credit Card</h5>
+                            <br>
+                            <p style="font-weight: bold; margin-top: 35%;">Address:</p>
+                            <p>Merkez mah. Sinan cad. Sinem apt. C blok No:2</p>
+                        </div>
+                        <div class="col-2">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="Cancelled" class="city w3-container w3-card-4 w3-light-grey" style="display: none; margin-top: -1.25%;">
+                    <h3 style="margin-bottom: 3%; font-weight: bold">CANCELLED ORDERS</h3>
+                    <p>There is no cancelled orders.</p>
+                </div>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class ="row">
+    <div class="col-12" style="border-top-style: groove;  margin-top: 5%; background-color: #717171;">
+        <div class ="row">
+            <div class="col-2">
+                <select class="w3-select w3-border" name="option">
+                    <option value="1">Turkish Lira ₺</option>
+                    <option value="2">Dollar $</option>
+                    <option value="3">Euro €</option>
+                </select>
+            </div>
+            <div class="col-8">
+            </div>
+            <div class="col-2">
+                <a href="index.html" style="color: initial;">
+                    <h4 style = "color: white; float:right; margin-top: -3%;">HELP & CONTACT</h4></a>
+                <h5 style = "color: white; float: right; margin-right: 10%; margin-top: -3%;">0850-255-4040</h5>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class = "col-2">
+            </div>
+            <div class="col-8">
+                <h6 style="text-align: center; margin-bottom: -20px;">© Copyright 2019 Online Ordering and Marketing System Inc. All rights are reserverd.</h6></a>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="{% static 'js/myorders.js' %}"></script>
+</body>
+</html>

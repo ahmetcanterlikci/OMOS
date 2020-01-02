@@ -3,9 +3,10 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-    <title>Register</title>
+    <title>Personal Info</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
     <link rel="stylesheet" href="{% static 'css/register.css' %}">
     <script src="https://kit.fontawesome.com/f4dcd45d8c.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -61,89 +62,56 @@
         </div>
     </div>
 </div>
-	</div>
-		<div id="info">
-			<form method="get">
-				<div id="personalInfo">
-					<h4>Personal Info</h4>
-					<label>Name-Surname
-					<input type="text" name="name" >
+
+
+	<div id="info">
+		<form method="get">
+			<div id="personalInfo">
+				<h4 style="margin-bottom: 5%;">Personal Info</h4>
+				<label>Name-Surname
+					<input class="values" type="text" name="name" required="required" disabled="disabled" value="Ali Veli">
 				</label>
 				<label>
 					<label>
-						Male<input type="radio" name="gender" value="male">
+						Male<input class="values" type="radio" name="gender" value="male" checked="checked" disabled="disabled">
 					</label>
 					<label>
-						Female<input type="radio" name="gender" value="female">
+						Female<input class="values" type="radio" name="gender" value="female" disabled="disabled">
 					</label>
-					</label>
-					<label>
-						Age
-						<select class="age">
-						<option selected="selected" disabled="disabled">
+				</label>
+				<label>
+					Age
+					<select class="age values" disabled="disabled">
+						<option disabled="disabled">
 							-
 						</option>
 						<option>
-							1
+							22
 						</option>
 						<option>
-							2
+							23
 						</option>
 						<option>
-							3
+							24
 						</option>
-						<option>
-							4
+						<option selected="selected">
+							25
 						</option>
 					</select>
-					</label>
-					<label>Phone
-					<input type="tel" name="phone" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}" required placeholder="(0000-000-000)">
+				</label>
+				<label>Phone
+					<input class="values" type="tel" name="phone" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}" required="required" value="0533-333-3333"  disabled="disabled">
 				</label>
 				<label>E-Mail
-					<input type="email" name="email" >
+					<input class="values" type="email" name="email" required="required" value="ali.veli@example.com"  disabled="disabled" >
 				</label>
 				<label>Adress
-					<textarea></textarea>
+					<textarea class="values" disabled="disabled" required="required">Işık Üniversitesi Şile/İstanbul</textarea>
 				</label>
-
-					
-
-				</div>
-				<div id="accountInfo">
-					<h4>Account Info</h4>
-					<label>User Name
-					<input type="text" name="userName" >
-				</label>
-				<label>Password
-					<input type="password" name="password" >
-				</label>
-				<label>Password Again
-					<input type="password" name="passwordAgain" >
-				</label>
-				<h6>*Your password must include a letter, a number, a symbol.</h6>
-				<h6>*Your password must be between 8-15 characters</h6>
-				<label>
-					<i class="fas fa-credit-card fa-3x"></i>
-					<input id="card" type="checkbox" name="card" onclick="myFunction()">
-				</label>
-				<div style="clear: both"></div>
-				<div id="cardInfo">
-					<label>Card Id
-					<input type="text" name="cardId" >
-					</label>
-					<label>Card Password
-					<input type="password" name="cardPassword" >
-					</label>
-				</div>
-				
-				</div>
 				<div style="clear: both;"></div>
-				<input id="btn" type="submit" value="Register">
+				<button id="saveEditButton" onclick="myFunc(event)">Edit</button>
 			</form>
 		</div>
-
-
 		<div id="bottom">
 			<div class ="row">
 				<div class="col-12" style="border-top-style: groove;  margin-top: 5%; background-color: #717171;">
