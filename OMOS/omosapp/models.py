@@ -109,5 +109,17 @@ class Chart(models.Model):
         unique_together = (("customer", "clientItemName","clientUsername"),)
 
 
+class NavigationContent(models.Model):
+    usertype = models.TextField(null=True)
+    path = models.TextField()
+    name = models.TextField()
+
+
+class MyProfileContent(models.Model):
+    usertype = models.TextField(null=True)
+    path = models.TextField()
+    name = models.TextField()
+
+
 
 

@@ -5,11 +5,12 @@ from django.shortcuts import render, redirect
 from django.utils import timezone
 
 from omosapp.forms import LoginUser
-from omosapp.models import SystemUser
+from omosapp.models import SystemUser, NavigationContent
 
 
 def home(request):
-    return render(request, 'omosapp/index.html', {})
+    navigationcontents = NavigationContent.objects.all()
+    return render(request, 'omosapp/index.html', {'navigationcontents': navigationcontents})
 
 
 def register(request):
