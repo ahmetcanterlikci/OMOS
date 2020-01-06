@@ -41,17 +41,18 @@
                     <a href="#contact">Contact</a>
                 </div>
                 <div class="col-6">
-                    <input type="text" placeholder="Search restaurant or market...">
+                    <form method="post" action="search">
+                        {% csrf_token %}
+                    <input type="text" placeholder="Search restaurant or market..." name="searchvalue" id="searchbar">
+                    </form>
                 </div>
                 <div class="col-3">
                     <div class="dropdown" style=" margin-left: 10%;">
                         <button class="dropbtn" style="width: 150%; ">Login</button>
                         <div class="dropdown-content">
-                            <a href="{% url 'login_view' %}">Login</a>
-                            <a href="{% url 'myprofile' %}">My Profile</a>
-                            <a href="#">My Comments</a>
-                            <a href="#">Our Policy</a>
-                            <a href="{% url 'home' %}">Exit</a>
+                            {% for navigationcontent in navigationcontents %}
+                                <a href="{% url navigationcontent.path %}">{{ navigationcontent.name }}</a>
+                            {% endfor %}
                         </div>
                     </div>
                     <a href="{% url 'chart' %}" style="float: right; margin-top: -1%;">
@@ -115,37 +116,52 @@
 
         <div class="row">
             <div class="col-2">
-                <a href="{% url 'search' %}" style="color: initial;">
-                    <i class="fas fa-pizza-slice"
-                       style="font-size:36px; text-align: center; margin-left: 30px;"></i></a>
-                <h4 style="text-align: center">Pizza</h4>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Pizza">
+                <input type="image" src="{% static 'images/pizza.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Pizza</h4>
             </div>
             <div class="col-2">
-                <a href="{% url 'search' %}" style="color: initial;">
-                    <i class="fas fa-hamburger" style="font-size:36px; text-align: center; margin-left: 30px;"></i></a>
-                <h4 style="text-align: center; margin-left: -9px;">Hamburger</h4>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Hamburger">
+                <input type="image" src="{% static 'images/burger.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Hamburger</h4>
             </div>
-            <div class="col-2 ">
-                <a href="{% url 'search' %}" style="color: initial;">
-                    <i class="fas fa-coffee" style="font-size:36px; text-align: center; margin-left: 30px;"></i></a>
-                <h4 style="text-align: center;  margin-left: 12px;">Coffe</h4>
+            <div class="col-2">
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Coffe">
+                <input type="image" src="{% static 'images/coffe.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Coffe</h4>
             </div>
-            <div class="col-2 ">
-                <a href="{% url 'search' %}" style="color: initial;">
-                    <i class="fas fa-birthday-cake" style="font-size:36px; text-align: center; margin-left: 30px;"></i></a>
-                <h4 style="text-align: center">Desserts</h4>
+            <div class="col-2">
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Dessert">
+                <input type="image" src="{% static 'images/pancakes.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Dessert</h4>
             </div>
-            <div class="col-2 ">
-                <a href="{% url 'search' %}" style="color: initial;">
-                    <i class="material-icons"
-                       style="font-size:36px; text-align: center; margin-left: 30px;">fastfood</i></a>
-                <h4 style="text-align: center">Fastfood</h4>
+            <div class="col-2">
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Fastfood">
+                <input type="image" src="{% static 'images/fastfood.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Fastfood</h4>
             </div>
-            <div class="col-2 ">
-                <a href="{% url 'search' %}" style="color: initial;">
-                    <i class="fas fa-bread-slice"
-                       style="font-size:36px; text-align: center; margin-left: 30px;"></i></a>
-                <h4 style="text-align: center">Breakfast</h4>
+            <div class="col-2">
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Breakfast">
+                <input type="image" src="{% static 'images/breakfast.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Breakfast</h4>
             </div>
 
         </div>
@@ -157,39 +173,51 @@
         <div class="row">
 
             <div class="col-2">
-                <a href="{% url 'search' %}" style="color: initial;">
-                    <img src="{% static 'images/water.png' %}"
-                         style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"></a>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Water">
+                <input type="image" src="{% static 'images/waterbottle.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
                 <h4 style="text-align: center;">Water</h4>
             </div>
             <div class="col-2">
-                <a href="{% url 'search' %}" style="color: initial;">
-                    <img src="{% static 'images/apple.png' %}"
-                         style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"></a>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Fruit">
+                <input type="image" src="{% static 'images/apple.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
                 <h4 style="text-align: center;">Fruit</h4>
             </div>
             <div class="col-2">
-                <a href="{% url 'search' %}" style="color: initial;">
-                    <img src="{% static 'images/carrot.png' %}"
-                         style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"></a>
-                <h4 style="text-align: center;">Vegatable</h4>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Vegetable">
+                <input type="image" src="{% static 'images/carrot.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Vegetable</h4>
             </div>
             <div class="col-2">
-                <a href="{% url 'search' %}" style="color: initial;">
-                    <img src="{% static 'images/candy.png' %}"
-                         style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"></a>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Snacks">
+                <input type="image" src="{% static 'images/candy.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
                 <h4 style="text-align: center;">Snacks</h4>
             </div>
             <div class="col-2">
-                <a href="{% url 'search' %}" style="color: initial;">
-                    <img src="{% static 'images/dog.png' %}"
-                         style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"></a>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Pets">
+                <input type="image" src="{% static 'images/dog.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
                 <h4 style="text-align: center;">Pets</h4>
             </div>
             <div class="col-2">
-                <a href="{% url 'search' %}" style="color: initial;">
-                    <img src="{% static 'images/cream.png' %}"
-                         style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"></a>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Cosmetic">
+                <input type="image" src="{% static 'images/cosmetic.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
                 <h4 style="text-align: center;">Cosmetic</h4>
             </div>
 
@@ -207,99 +235,52 @@
         <div class="row">
 
             <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Steak">
+                <input type="image" src="{% static 'images/steak2.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Steak</h4>
             </div>
             <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Kebab">
+                <input type="image" src="{% static 'images/kebab.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Kebab</h4>
             </div>
             <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Chinese">
+                <input type="image" src="{% static 'images/chinese.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Chinese</h4>
             </div>
             <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Fish">
+                <input type="image" src="{% static 'images/fish.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Fish</h4>
             </div>
             <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Chicken">
+                <input type="image" src="{% static 'images/fried-chicken.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Chicken</h4>
             </div>
             <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="col-5" style=" border-style: groove; margin-left: 30px;">
-
-        <div class="row">
-
-            <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
-            </div>
-            <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
-            </div>
-            <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
-            </div>
-            <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
-            </div>
-            <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
-            </div>
-            <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
-            </div>
-
-        </div>
-
-    </div>
-
-
-</div>
-
-<div class="row">
-
-    <div class="col-5" style=" border-style: groove; margin-left: 120px;">
-
-        <div class="row">
-
-            <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
-            </div>
-            <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
-            </div>
-            <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
-            </div>
-            <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
-            </div>
-            <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
-            </div>
-            <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Homemade">
+                <input type="image" src="{% static 'images/homemade.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Homemade</h4>
             </div>
 
         </div>
@@ -311,28 +292,52 @@
         <div class="row">
 
             <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Cleaning">
+                <input type="image" src="{% static 'images/cleaning.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Cleaning</h4>
             </div>
             <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Bath">
+                <input type="image" src="{% static 'images/bath.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Bath</h4>
             </div>
             <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Technology">
+                <input type="image" src="{% static 'images/smartwatch.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Technology</h4>
             </div>
             <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Clothing">
+                <input type="image" src="{% static 'images/shirt.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Clothing</h4>
             </div>
             <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Drinks">
+                <input type="image" src="{% static 'images/cola.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Drinks</h4>
             </div>
             <div class="col-2">
-                <i class="fas fa-pizza-slice" style="font-size:36px; text-align: center; margin-left: 30px;"></i>
-                <h4 style="text-align: center">Pizza</h4>
+                <form method="post" action="search">
+                    {% csrf_token %}
+                    <input type="hidden" name="hiddenTag" value="Cereals">
+                <input type="image" src="{% static 'images/cereal.png' %}" style="width: 70%; margin-bottom: -6%; margin-top: -13%; margin-left: 12%"/>
+                </form>
+                <h4 style="text-align: center;">Cereals</h4>
             </div>
 
         </div>
@@ -345,7 +350,7 @@
 <div class="row" style="margin-top: 5%; background-color: #C0C0C0;">
 
     <div class="col-6">
-        <h3 style="margin-left: 120px; color: white;">MY FAVOURITES</h3>
+        <h3 style="margin-left: 120px; color: white;">TOP RESTAURANTS</h3>
     </div>
     <div class="col-6">
 
@@ -494,6 +499,7 @@
 </div>
 
 <script src="{% static 'js/main.js' %}"></script>
+
 
 </body>
 </html>

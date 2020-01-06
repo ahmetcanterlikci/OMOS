@@ -3,6 +3,7 @@ from django.db import models
 
 
 # Create your models here.
+from django.db.models import CharField
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
@@ -25,6 +26,11 @@ class SystemUser(models.Model):
     clientMinPrice = models.BigIntegerField(null=True)
     clientAvgTime = models.CharField(max_length=50, null=True)
     clientManagerEmail = models.CharField(max_length=50, null=True)
+    tags = models.ManyToManyField('ClientTag', blank=True)
+    clientrate = models.IntegerField(null=True)
+    customerCount = models.IntegerField(null=True)
+    clientName = models.TextField(unique=True, null=True)
+    address = models.TextField(null=True)
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
@@ -36,27 +42,14 @@ class SystemUser(models.Model):
         instance.systemuser.save()
 
 
-class Address(models.Model):
-    name = models.CharField(max_length=100)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    address = models.TextField()
-    country = models.CharField(max_length=50)
-    city = models.CharField(max_length=50)
-    district = models.CharField(max_length=50)
-    neighborhood = models.CharField(max_length=50)
-
-    class Meta:
-        unique_together = (("name", "user"),)
-
-
 class ClientItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=100)
     price = models.BigIntegerField()
-    category = models.CharField(max_length=50)
+    category = models.ForeignKey('ClientCategory', null=True, on_delete=models.CASCADE)
 
     class Meta:
-        unique_together = (("user", "name"),)
+        unique_together = (("user", "name", "category"),)
 
 
 class ClientCategory(models.Model):
@@ -67,24 +60,14 @@ class ClientCategory(models.Model):
         unique_together = (("name", "user"),)
 
 
-class ClientRate(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, primary_key=True)
-    rate = models.BigIntegerField()
-    customerCount = models.BigIntegerField()
-
-
 class ClientTag(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     tag = models.CharField(max_length=100)
 
-    class Meta:
-        unique_together = (("user", "tag"),)
-
 
 class Order(models.Model):
-    orderID = models.BigIntegerField(primary_key=True)
     customer = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    clientUsername = models.CharField(max_length=100, null=True)
+    clientName = models.CharField(max_length=100, null=True)
     date = models.DateTimeField()
     price = models.BigIntegerField()
     paymentMethod = models.CharField(max_length=50)
@@ -92,21 +75,21 @@ class Order(models.Model):
 
 
 class OrderDetail(models.Model):
-    orderID = models.ForeignKey('Order', on_delete=models.CASCADE)
-    item = models.CharField(max_length=100)
+    order = models.ForeignKey('Order', on_delete=models.CASCADE)
+    clientItem = models.ForeignKey('ClientItem', null=True, on_delete=models.CASCADE)
     amount = models.BigIntegerField()
 
     class Meta:
-        unique_together = (("orderID", "item"),)
+        unique_together = (("order", "clientItem"),)
 
 
 class Chart(models.Model):
     customer = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    clientItemName = models.ForeignKey('ClientItem', on_delete=models.CASCADE)
-    clientUsername = models.CharField(max_length=100, null=True)
+    clientItem = models.ForeignKey('ClientItem', null=True, on_delete=models.CASCADE)
+    clientName = models.CharField(max_length=100, null=True)
 
     class Meta:
-        unique_together = (("customer", "clientItemName","clientUsername"),)
+        unique_together = (("customer", "clientItem", "clientName"),)
 
 
 class NavigationContent(models.Model):
@@ -119,6 +102,7 @@ class MyProfileContent(models.Model):
     usertype = models.TextField(null=True)
     path = models.TextField()
     name = models.TextField()
+    faicon = models.TextField(null=True)
 
 
 

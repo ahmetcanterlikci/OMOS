@@ -1,15 +1,20 @@
+from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.utils import timezone
 
 from omosapp.forms import LoginUser
-from omosapp.models import SystemUser, NavigationContent
+from omosapp.models import SystemUser, NavigationContent, MyProfileContent
 
 
 def home(request):
-    navigationcontents = NavigationContent.objects.all()
+    if request.user.is_authenticated:
+        navigationcontents = NavigationContent.objects.filter(usertype='valid')
+    else:
+        navigationcontents = NavigationContent.objects.filter(usertype='visitor')
     return render(request, 'omosapp/index.html', {'navigationcontents': navigationcontents})
 
 
@@ -58,7 +63,20 @@ def myorders(request):
 
 
 def myprofile(request):
-    return render(request, 'omosapp/myprofile.html', {})
+    if request.user.is_authenticated:
+        userprofile = SystemUser.objects.filter(user__username__exact=request.user.username)
+
+        if userprofile.filter(is_customer__exact=True).count() > 0:
+            myprofilecontents = MyProfileContent.objects.filter(usertype='customer')
+        elif userprofile.filter(is_client__exact=True).count() > 0:
+            myprofilecontents = MyProfileContent.objects.filter(usertype='client')
+        else:
+            myprofilecontents = MyProfileContent.objects.filter(usertype='manager')
+
+        return render(request, 'omosapp/myprofile.html', {'myprofilecontents': myprofilecontents})
+    else:
+        myprofilecontents = MyProfileContent.objects.filter(usertype='none')
+        return render(request, 'omosapp/myprofile.html', {'myprofilecontents': myprofilecontents})
 
 
 def order(request):
@@ -69,6 +87,8 @@ def login_view(request):
     if request.method == "POST":
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
+            user = form.get_user()
+            login(request, user)
             return redirect('home')
         else:
             error_message = "*Wrong Password or Username."
@@ -78,6 +98,18 @@ def login_view(request):
         form = AuthenticationForm()
 
     return render(request, 'omosapp/login.html', {'form': form, 'error_message': error_message})
+
+
+def exit_view(request):
+    if request.method == "GET":
+        return render(request, 'omosapp/exit.html', {})
+    else:
+        if request.method == "POST" and 'leaveYes' in request.POST:
+            logout(request)
+            return redirect('home')
+        else:
+            return redirect('home')
+
 
 
 

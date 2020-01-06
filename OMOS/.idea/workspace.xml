@@ -2,12 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38f917a7-7d0d-4edd-a103-ae5d3d441650" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/omosapp/migrations/0002_auto_20200103_1645.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/migrations/0003_myprofilecontent_faicon.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/migrations/0004_auto_20200106_1721.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/migrations/0005_clienttag_user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/bath.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/breakfast.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/burger.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/cereal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/chinese.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/cleaning.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/coffe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/cola.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/cosmetic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/fastfood.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/fish.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/fried-chicken.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/homemade.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/kebab.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/pancakes.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/pizza.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/shirt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/smartwatch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/steak2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/waterbottle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/templates/omosapp/exit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/omosapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/omosapp/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/omosapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/omosapp/static/images/cream.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/omosapp/static/images/water.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/omosapp/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/static/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/omosapp/templates/omosapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/templates/omosapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/omosapp/templates/omosapp/myprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/templates/omosapp/myprofile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/omosapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/omosapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/views.py" afterDir="false" />
     </list>
@@ -24,6 +51,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -36,6 +64,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -114,7 +143,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1577977099674</updated>
-      <workItem from="1577977101098" duration="7451000" />
+      <workItem from="1577977101098" duration="27822000" />
     </task>
     <servers />
   </component>

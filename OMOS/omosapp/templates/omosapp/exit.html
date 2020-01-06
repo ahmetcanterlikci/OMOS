@@ -3,9 +3,10 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-    <title>My Profile</title>
+    <title>Login</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <script src="https://kit.fontawesome.com/f4dcd45d8c.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -62,55 +63,59 @@
 </div>
 
 <div class="row">
-    <div class="col-12 w3-container w3-card-4 w3-light-grey" style="width: 98%; margin-left: 1%;">
-        <div class="row">
-            <div class="col-12">
-                <h3 style="border-bottom-style: groove; font-weight: bold;">MY PROFILE</h3>
-            </div>
-        </div>
-        <div class="row">
-            {% for myprofilecontent in myprofilecontents %}
-                <div class="col-1">
-                <a href="{% url myprofilecontent.path %}">
-                <i class="{{ myprofilecontent.faicon }}" style="font-size: 70px; margin: auto"></i></a>
-                <h4 style="margin: auto">{{ myprofilecontent.name }}</h4>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
+    <div class = "col-4"></div>
+    <div class ="col-6">
 
-</div>
+        <h4 style="margin-bottom: 5%;">Do you want to leave?</h4>
+        <form method="POST">
+            {% csrf_token %}
+        <button class="w3-button w3-green" type="submit" name ="leaveYes" style="width:50%; margin-bottom: 5%;">Yes, i will leave.</button>
+        </form>
 
-<div class ="row">
-    <div class="col-12" style="border-top-style: groove;  margin-top: 5%; background-color: #717171;">
-        <div class ="row">
-            <div class="col-2">
-                <select class="w3-select w3-border" name="option">
-                    <option value="1">Turkish Lira ₺</option>
-                    <option value="2">Dollar $</option>
-                    <option value="3">Euro €</option>
-                </select>
-            </div>
-            <div class="col-8">
-            </div>
-            <div class="col-2">
-                <a href="index.html" style="color: initial;">
-                    <h4 style = "color: white; float:right; margin-top: -3%;">HELP & CONTACT</h4></a>
-                <h5 style = "color: white; float: right; margin-right: 10%; margin-top: -3%;">0850-255-4040</h5>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class = "col-2">
-            </div>
-            <div class="col-8">
-                <h6 style="text-align: center; margin-bottom: -20px;">© Copyright 2019 Online Ordering and Marketing System Inc. All rights are reserverd.</h6></a>
-            </div>
-            <div class="col-2">
-            </div>
-        </div>
+        <form method="POST">
+            {% csrf_token %}
+        <button class="w3-button w3-green" type="submit" name ="leaveNo" style="width:50%;">No, i want to stay.</button>
+        </form>
 
     </div>
+    <div class = "col-2"></div>
 </div>
+
+<div id="bottom">
+    <div class="row">
+        <div class="col-12" style="border-top-style: groove;  margin-top: 5%; background-color: #717171;">
+            <div class="row">
+                <div class="col-2">
+                    <select class="w3-select w3-border" name="option">
+                        <option value="1">Turkish Lira ₺</option>
+                        <option value="2">Dollar $</option>
+                        <option value="3">Euro €</option>
+                    </select>
+                </div>
+                <div class="col-8">
+                </div>
+                <div class="col-2">
+                    <a href="index.html" style="color: initial;">
+                        <h4 style="color: white; float:right; margin-top: -3%;">HELP & CONTACT</h4></a>
+                    <h5 style="color: white; float: right; margin-right: 10%; margin-top: -3%;">0850-255-4040</h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                </div>
+                <div class="col-8">
+                    <h6 style="text-align: center; margin-bottom: -20px;">© Copyright 2019 Online Ordering and Marketing
+                        System Inc. All rights are reserverd.</h6></a>
+                </div>
+                <div class="col-2">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>
