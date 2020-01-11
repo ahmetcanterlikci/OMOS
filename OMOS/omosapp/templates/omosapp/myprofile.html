@@ -1,66 +1,17 @@
+{% extends 'omosapp/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
+{% block content1 %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
     <title>My Profile</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <script src="https://kit.fontawesome.com/f4dcd45d8c.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+{% endblock %}
 
-</head>
-<body>
 
-<div class="row">
-    <div class="col-3">
-        <div class="header">
-            <h1 style="font-weight: bold;margin-bottom: -5%; margin-top: -4%;">OMOS</h1>
-        </div>
-    </div>
-
-    <div class="col-7">
-    </div>
-
-    <div class="col-2">
-        <i class="fab fa-facebook" style="font-size:30px; margin-right: 5%; margin-left: 15%"></i>
-        <i class="fab fa-twitter" style="font-size:30px; margin-right: 5%"></i>
-        <i class="fab fa-instagram" style="font-size:30px;"></i>
-    </div>
-
-</div>
-
-<div class="row">
-    <div class="col-12">
-
-        <div class="topnav">
-            <div class="row">
-                <div class="col-3">
-                    <a class="active" href="{% url 'home' %}">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="col-6">
-                    <input type="text" placeholder="Search restaurant or market...">
-                </div>
-                <div class="col-3">
-                    <div class="dropdown" style=" margin-left: 10%;">
-                        <button class="dropbtn" style="width: 150%; ">Login</button>
-                        <div class="dropdown-content">
-                            <a href="{% url 'myprofile' %}">My Profile</a>
-                            <a href="#">My Comments</a>
-                            <a href="#">Our Policy</a>
-                            <a href="{% url 'home' %}">Exit</a>
-                        </div>
-                    </div>
-                    <a href="{% url 'chart' %}" style="float: right; margin-top: -1%;">
-                        <i class="fas fa-shopping-cart" style="font-size:36px; float: right;"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+{% block content2 %}
 <div class="row">
     <div class="col-12 w3-container w3-card-4 w3-light-grey" style="width: 98%; margin-left: 1%;">
         <div class="row">
@@ -80,37 +31,10 @@
     </div>
 
 </div>
+{% endblock %}
 
-<div class ="row">
-    <div class="col-12" style="border-top-style: groove;  margin-top: 5%; background-color: #717171;">
-        <div class ="row">
-            <div class="col-2">
-                <select class="w3-select w3-border" name="option">
-                    <option value="1">Turkish Lira ₺</option>
-                    <option value="2">Dollar $</option>
-                    <option value="3">Euro €</option>
-                </select>
-            </div>
-            <div class="col-8">
-            </div>
-            <div class="col-2">
-                <a href="index.html" style="color: initial;">
-                    <h4 style = "color: white; float:right; margin-top: -3%;">HELP & CONTACT</h4></a>
-                <h5 style = "color: white; float: right; margin-right: 10%; margin-top: -3%;">0850-255-4040</h5>
-            </div>
-        </div>
+{% block content3 %}
+{% endblock %}
 
-        <div class="row">
-            <div class = "col-2">
-            </div>
-            <div class="col-8">
-                <h6 style="text-align: center; margin-bottom: -20px;">© Copyright 2019 Online Ordering and Marketing System Inc. All rights are reserverd.</h6></a>
-            </div>
-            <div class="col-2">
-            </div>
-        </div>
-
-    </div>
-</div>
 </body>
 </html>

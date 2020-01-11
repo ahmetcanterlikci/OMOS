@@ -19,5 +19,5 @@ urlpatterns = [
     path('myprofile', views.myprofile, name='myprofile'),
     path('order', views.order, name='order'),
     path('exit', views.exit_view, name='exit_view'),
-
+    path('base', views.base_view, name='base'),
 ]

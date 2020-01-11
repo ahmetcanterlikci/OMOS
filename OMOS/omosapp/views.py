@@ -18,6 +18,10 @@ def home(request):
     return render(request, 'omosapp/index.html', {'navigationcontents': navigationcontents})
 
 
+def base_view(request):
+    return render(request, 'omosapp/base.html', {})
+
+
 def register(request):
     return render(request, 'omosapp/register.html', {})
 
@@ -60,24 +64,52 @@ def forgetpassword(request):
 def search(request):
     if request.method == "GET":
         clients = SystemUser.objects.filter(is_client=True)
+        restaurantcount = clients.filter(clientType='Restaurant').count()
+        marketcount = clients.filter(clientType='Market').count()
         distinctrates = clients.values('clientrate').distinct().order_by('clientrate')
         distinctprices = clients.values('clientMinPrice').distinct().order_by('clientMinPrice')
-        return render(request, 'omosapp/restaurant.html', {'clients': clients, 'distinctrates': distinctrates, 'distinctprices': distinctprices, })
+
+        if request.user.is_authenticated:
+            navigationcontents = NavigationContent.objects.filter(usertype='valid')
+        else:
+            navigationcontents = NavigationContent.objects.filter(usertype='visitor')
+        return render(request, 'omosapp/restaurant.html',
+                      {'clients': clients, 'distinctrates': distinctrates, 'distinctprices': distinctprices,
+                       'navigationcontents': navigationcontents, 'restaurantcount': restaurantcount, 'marketcount': marketcount, })
     else:
-        if request.POST.get('searchvalue').exists():
+        if request.POST.get('searchvalue'):
             searchvalue = request.POST.get('searchvalue')
             clients = SystemUser.objects.filter(is_client=True).filter(clientName__contains=searchvalue)
+            restaurantcount = clients.filter(clientType='Restaurant').count()
+            marketcount = clients.filter(clientType='Market').count()
             distinctrates = clients.values('clientrate').distinct().order_by('clientrate')
             distinctprices = clients.values('clientMinPrice').distinct().order_by('clientMinPrice')
+
+            if request.user.is_authenticated:
+                navigationcontents = NavigationContent.objects.filter(usertype='valid')
+            else:
+                navigationcontents = NavigationContent.objects.filter(usertype='visitor')
             return render(request, 'omosapp/restaurant.html',
-                          {'clients': clients, 'distinctrates': distinctrates, 'distinctprices': distinctprices, })
-        elif request.POST.get('hiddenTag').exists():
+                          {'clients': clients, 'distinctrates': distinctrates, 'distinctprices': distinctprices,
+                           'navigationcontents': navigationcontents, 'restaurantcount': restaurantcount,
+                           'marketcount': marketcount, })
+        elif request.POST.get('hiddenTag'):
             hiddenTag = request.POST.get('hiddenTag')
-            clients = SystemUser.objects.filter(is_client=True).filter(tags__tag__exact=hiddenTag).filter(tags_user_username_exact=request.user.username)
+            clients = SystemUser.objects.filter(is_client=True).filter(tags__tag__exact=hiddenTag).filter(
+                tags_user_username_exact=request.user.username)
+            restaurantcount = clients.filter(clientType='Restaurant').count()
+            marketcount = clients.filter(clientType='Market').count()
             distinctrates = clients.values('clientrate').distinct().order_by('clientrate')
             distinctprices = clients.values('clientMinPrice').distinct().order_by('clientMinPrice')
+
+            if request.user.is_authenticated:
+                navigationcontents = NavigationContent.objects.filter(usertype='valid')
+            else:
+                navigationcontents = NavigationContent.objects.filter(usertype='visitor')
             return render(request, 'omosapp/restaurant.html',
-                          {'clients': clients, 'distinctrates': distinctrates, 'distinctprices': distinctprices, })
+                          {'clients': clients, 'distinctrates': distinctrates, 'distinctprices': distinctprices,
+                           'navigationcontents': navigationcontents, 'restaurantcount': restaurantcount,
+                           'marketcount': marketcount, })
 
 
 def myclients(request):
@@ -99,10 +131,20 @@ def myprofile(request):
         else:
             myprofilecontents = MyProfileContent.objects.filter(usertype='manager')
 
-        return render(request, 'omosapp/myprofile.html', {'myprofilecontents': myprofilecontents})
+        if request.user.is_authenticated:
+            navigationcontents = NavigationContent.objects.filter(usertype='valid')
+        else:
+            navigationcontents = NavigationContent.objects.filter(usertype='visitor')
+        return render(request, 'omosapp/myprofile.html',
+                      {'myprofilecontents': myprofilecontents, 'navigationcontents': navigationcontents})
     else:
         myprofilecontents = MyProfileContent.objects.filter(usertype='none')
-        return render(request, 'omosapp/myprofile.html', {'myprofilecontents': myprofilecontents})
+        if request.user.is_authenticated:
+            navigationcontents = NavigationContent.objects.filter(usertype='valid')
+        else:
+            navigationcontents = NavigationContent.objects.filter(usertype='visitor')
+        return render(request, 'omosapp/myprofile.html',
+                      {'myprofilecontents': myprofilecontents, 'navigationcontents': navigationcontents})
 
 
 def order(request):
@@ -123,12 +165,21 @@ def login_view(request):
         error_message = ""
         form = AuthenticationForm()
 
-    return render(request, 'omosapp/login.html', {'form': form, 'error_message': error_message})
+    if request.user.is_authenticated:
+        navigationcontents = NavigationContent.objects.filter(usertype='valid')
+    else:
+        navigationcontents = NavigationContent.objects.filter(usertype='visitor')
+    return render(request, 'omosapp/login.html',
+                  {'form': form, 'error_message': error_message, 'navigationcontents': navigationcontents, })
 
 
 def exit_view(request):
     if request.method == "GET":
-        return render(request, 'omosapp/exit.html', {})
+        if request.user.is_authenticated:
+            navigationcontents = NavigationContent.objects.filter(usertype='valid')
+        else:
+            navigationcontents = NavigationContent.objects.filter(usertype='visitor')
+        return render(request, 'omosapp/exit.html', {'navigationcontents': navigationcontents, })
     else:
         if request.method == "POST" and 'leaveYes' in request.POST:
             logout(request)

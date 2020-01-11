@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38f917a7-7d0d-4edd-a103-ae5d3d441650" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/omosapp/static/images/next.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/omosapp/templates/omosapp/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/omosapp/static/js/searchbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/static/js/searchbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/omosapp/templates/omosapp/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/templates/omosapp/account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/omosapp/templates/omosapp/changePassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/templates/omosapp/changePassword.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/omosapp/templates/omosapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/templates/omosapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/omosapp/templates/omosapp/myprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/templates/omosapp/myprofile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/omosapp/templates/omosapp/restaurant.html" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/templates/omosapp/restaurant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/omosapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/omosapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +27,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -113,7 +120,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1577977099674</updated>
-      <workItem from="1577977101098" duration="42292000" />
+      <workItem from="1577977101098" duration="49173000" />
     </task>
     <servers />
   </component>
