@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38f917a7-7d0d-4edd-a103-ae5d3d441650" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/omosapp/static/images/kadikoyoffice.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/omosapp/static/images/mcdonaldsbakırköy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/omosapp/static/images/pizzahutbakırköy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/omosapp/static/js/searchbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/omosapp/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/static/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/omosapp/templates/omosapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/templates/omosapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/omosapp/templates/omosapp/restaurant.html" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/templates/omosapp/restaurant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/omosapp/templates/omosapp/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/templates/omosapp/account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/omosapp/templates/omosapp/changePassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/templates/omosapp/changePassword.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/omosapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/omosapp/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -119,7 +113,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1577977099674</updated>
-      <workItem from="1577977101098" duration="41097000" />
+      <workItem from="1577977101098" duration="42292000" />
     </task>
     <servers />
   </component>

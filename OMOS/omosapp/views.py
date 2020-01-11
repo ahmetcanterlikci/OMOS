@@ -1,5 +1,5 @@
 from django.contrib.auth import login, logout
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 
@@ -31,7 +31,14 @@ def addresses(request):
 
 
 def changepassword(request):
-    return render(request, 'omosapp/changePassword.html', {})
+    if request.method == "POST":
+        changepasswordform = PasswordChangeForm(request.user, data=request.POST)
+        if changepasswordform.is_valid():
+            changepasswordform.save()
+            return redirect('changepassword')
+    else:
+        changepasswordform = PasswordChangeForm(request.user)
+        return render(request, 'omosapp/changePassword.html', {'changepasswordform': changepasswordform, })
 
 
 def chart(request):

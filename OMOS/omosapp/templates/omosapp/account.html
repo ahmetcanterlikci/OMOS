@@ -43,16 +43,19 @@
                     <a href="#contact">Contact</a>
                 </div>
                 <div class="col-6">
-                    <input type="text" placeholder="Search restaurant or market...">
+                    <form method="post" action="search">
+                        {% csrf_token %}
+                        <input type="text" placeholder="Search restaurant or market..." name="searchvalue"
+                               id="searchbar">
+                    </form>
                 </div>
                 <div class="col-3">
                     <div class="dropdown" style=" margin-left: 10%;">
                         <button class="dropbtn" style="width: 150%; ">Login</button>
                         <div class="dropdown-content">
-                            <a href="{% url 'myprofile' %}">My Profile</a>
-                            <a href="#">My Comments</a>
-                            <a href="#">Our Policy</a>
-                            <a href="{% url 'home' %}">Exit</a>
+                            {% for navigationcontent in navigationcontents %}
+                                <a href="{% url navigationcontent.path %}">{{ navigationcontent.name }}</a>
+                            {% endfor %}
                         </div>
                     </div>
                     <a href="{% url 'chart' %}" style="float: right; margin-top: -1%;">
@@ -64,86 +67,82 @@
 </div>
 
 
-	<div id="info">
-		<form method="get">
-			<div id="personalInfo">
-				<h4 style="margin-bottom: 5%;">Personal Info</h4>
-				<label>Name-Surname
-					<input class="values" type="text" name="name" required="required" disabled="disabled" value="Ali Veli">
-				</label>
-				<label>
-					<label>
-						Male<input class="values" type="radio" name="gender" value="male" checked="checked" disabled="disabled">
-					</label>
-					<label>
-						Female<input class="values" type="radio" name="gender" value="female" disabled="disabled">
-					</label>
-				</label>
-				<label>
-					Age
-					<select class="age values" disabled="disabled">
-						<option disabled="disabled">
-							-
-						</option>
-						<option>
-							22
-						</option>
-						<option>
-							23
-						</option>
-						<option>
-							24
-						</option>
-						<option selected="selected">
-							25
-						</option>
-					</select>
-				</label>
-				<label>Phone
-					<input class="values" type="tel" name="phone" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}" required="required" value="0533-333-3333"  disabled="disabled">
-				</label>
-				<label>E-Mail
-					<input class="values" type="email" name="email" required="required" value="ali.veli@example.com"  disabled="disabled" >
-				</label>
-				<label>Adress
-					<textarea class="values" disabled="disabled" required="required">Işık Üniversitesi Şile/İstanbul</textarea>
-				</label>
-				<div style="clear: both;"></div>
-				<button id="saveEditButton" onclick="myFunc(event)">Edit</button>
-			</form>
-		</div>
-		<div id="bottom">
-			<div class ="row">
-				<div class="col-12" style="border-top-style: groove;  margin-top: 5%; background-color: #717171;">
-					<div class ="row">
-						<div class="col-2">
-							<select class="w3-select w3-border" name="option">
-								<option value="1">Turkish Lira ₺</option>
-								<option value="2">Dollar $</option>
-								<option value="3">Euro €</option>
-							</select>
-						</div>
-						<div class="col-8">
-						</div>
-						<div class="col-2">
-							<a href="index.html" style="color: initial;">
-								<h4 style = "color: white; float:right; margin-top: -3%;">HELP & CONTACT</h4></a>
-								<h5 style = "color: white; float: right; margin-right: 10%; margin-top: -3%;">0850-255-4040</h5>
-							</div>
-						</div>
+<div id="info">
+    <form method="get">
+        <div id="personalInfo">
+            <h4 style=" border-bottom-style: groove; font-weight: bold; margin-bottom: 5%;">Personal Info</h4>
+            <form method="POST">
+            <label>Name
+                <input class="values" type="text" name="name" required="required">
+            </label>
+            <label>Surname
+                <input class="values" type="text" name="surname" required="required">
+            </label>
+            <label style="margin-bottom: 5%; margin-top: 6%;">
+                Gender
+                <select name="genders" style="font-size: 25px; width: 30%; margin-left: 25%;">
+                    <option value="male" >Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </label>
+            <label>
+                Age
+                <input type="number" name="quantity" min="18" max="99">
+            </label>
+            <label>Phone
+                <input class="values" type="tel" name="phone" required="required">
+            </label>
+            <label>E-Mail
+                <input class="values" type="email" name="email" required="required">
+            </label>
+            <label style="margin-top: 6%;">Country
+                <input class="values" type="text" name="country" required="required">
+            </label>
+            <label>City
+                <input class="values" type="text" name="city" required="required">
+            </label>
+            <label>Adress
+                <textarea class="values" required="required" name="address"
+                          style="width: 75%; margin-left: 40%; margin-right: 0px; margin-top: -20px; "></textarea>
+            </label>
+            <div style="clear: both;"></div>
+            <button id="saveButton" type="submit" style="width: 50%; margin-top: 3%;">Save</button>
+            </form>
+</div>
 
-						<div class="row">
-							<div class = "col-2">
-							</div>
-							<div class="col-8">
-								<h6 style="text-align: center; margin-bottom: -20px;">© Copyright 2019 Online Ordering and Marketing System Inc. All rights are reserverd.</h6></a>
-							</div>
-							<div class="col-2">
-							</div>
-						</div>
+<div id="bottom">
+    <div class="row">
+        <div class="col-12" style="border-top-style: groove;  margin-top: 5%; background-color: #717171;">
+            <div class="row">
+                <div class="col-2">
+                    <select class="w3-select w3-border" name="option">
+                        <option value="1">Turkish Lira ₺</option>
+                        <option value="2">Dollar $</option>
+                        <option value="3">Euro €</option>
+                    </select>
+                </div>
+                <div class="col-8">
+                </div>
+                <div class="col-2">
+                    <a href="index.html" style="color: initial;">
+                        <h4 style="color: white; float:right; margin-top: -3%;">HELP & CONTACT</h4></a>
+                    <h5 style="color: white; float: right; margin-right: 10%; margin-top: -3%;">0850-255-4040</h5>
+                </div>
+            </div>
 
-					</div>
-				</div>
-			</div>
-		</body>
-		</html>
+            <div class="row">
+                <div class="col-2">
+                </div>
+                <div class="col-8">
+                    <h6 style="text-align: center; margin-bottom: -20px;">© Copyright 2019 Online Ordering and Marketing
+                        System Inc. All rights are reserverd.</h6></a>
+                </div>
+                <div class="col-2">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
