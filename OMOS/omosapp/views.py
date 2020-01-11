@@ -51,7 +51,26 @@ def forgetpassword(request):
 
 
 def search(request):
-    return render(request, 'omosapp/restaurant.html', {})
+    if request.method == "GET":
+        clients = SystemUser.objects.filter(is_client=True)
+        distinctrates = clients.values('clientrate').distinct().order_by('clientrate')
+        distinctprices = clients.values('clientMinPrice').distinct().order_by('clientMinPrice')
+        return render(request, 'omosapp/restaurant.html', {'clients': clients, 'distinctrates': distinctrates, 'distinctprices': distinctprices, })
+    else:
+        if request.POST.get('searchvalue').exists():
+            searchvalue = request.POST.get('searchvalue')
+            clients = SystemUser.objects.filter(is_client=True).filter(clientName__contains=searchvalue)
+            distinctrates = clients.values('clientrate').distinct().order_by('clientrate')
+            distinctprices = clients.values('clientMinPrice').distinct().order_by('clientMinPrice')
+            return render(request, 'omosapp/restaurant.html',
+                          {'clients': clients, 'distinctrates': distinctrates, 'distinctprices': distinctprices, })
+        elif request.POST.get('hiddenTag').exists():
+            hiddenTag = request.POST.get('hiddenTag')
+            clients = SystemUser.objects.filter(is_client=True).filter(tags__tag__exact=hiddenTag).filter(tags_user_username_exact=request.user.username)
+            distinctrates = clients.values('clientrate').distinct().order_by('clientrate')
+            distinctprices = clients.values('clientMinPrice').distinct().order_by('clientMinPrice')
+            return render(request, 'omosapp/restaurant.html',
+                          {'clients': clients, 'distinctrates': distinctrates, 'distinctprices': distinctprices, })
 
 
 def myclients(request):
@@ -109,15 +128,3 @@ def exit_view(request):
             return redirect('home')
         else:
             return redirect('home')
-
-
-
-
-
-
-
-
-
-
-
-
