@@ -82,15 +82,18 @@
                     <h4 style="font-weight: bold;">
                         {{ client.clientName }}
                     </h4>
+                    <h5>{{ client.clientType }}</h5>
                     <h5 style="font-weight: bold;">{{ client.clientrate }}.0 ({{ client.customerCount }})</h5>
                     <h5>{{ client.address }}</h5>
                     <h5>{{ client.clientMinPrice }}.00 TL</h5>
                     <h5>{{ client.clientAvgTime }}</h5>
                 </div>
                 <div class="col-6">
-                    <a href="{% url 'order' %}">
-                        <button class="w3-button w3-xlarge w3-red" style="width: 30%; float: right;">Order</button>
-                    </a>
+                        <form method="POST" action ="order">
+                            {% csrf_token %}
+                            <input type="hidden" name="clientusername" value="{{ client.user.username }}">
+                        <button class="w3-button w3-xlarge w3-red" type="submit" style="width: 30%; float: right;">Order</button>
+                        </form>
                 </div>
             </div>
         {% endfor %}
